@@ -11,6 +11,18 @@ const App = () => {
   useEffect(() => {
     weather.fetchCurrentLocation();
   }, []);
+
+  document.addEventListener(
+    "keydown",
+    function (e) {
+      if (e.key === "Enter" && !e.repeat) {
+        weather.fetchData();
+        console.log("Works");
+      }
+    },
+    { once: true }
+  );
+
   return (
     <div
       className="App container bg-info text-white d-grid gap-3 my-5 justify-content-center text-center border p-5 shadow rounded
